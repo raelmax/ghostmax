@@ -6,38 +6,19 @@
 <main class="content" role="main">
 
     <article class="{{post_class}}">
-
-        {{! Each post has the blog logo at the top, with a link back to the home page }}
-        <header class="post-header">
-            <a id="blog-logo" href="{{@blog.url}}">
-                {{#if @blog.logo}}
-                    <img src="{{@blog.logo}}" alt="Blog Logo" />
-                {{else}}
-                    <span class="blog-title">{{@blog.title}}</span>
-                {{/if}}
-            </a>
-        </header>
-
         {{! Everything inside the #post tags pulls data from the post }}
         {{#post}}
 
         {{! Everything below outputs content of the the post which has been published }}
         <span class="post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time> {{tags prefix="on " separator=" | "}}</span>
 
-        <h1 class="post-title">{{{title}}}</h1>
+        <h2 class="post-title">{{{title}}}</h2>
 
         <section class="post-content">
             {{content}}
         </section>
 
         <footer class="post-footer">
-
-            {{#if author}}
-                <section class="author">
-                    <h4>{{author.name}}</h4>
-                    <p>{{author.bio}}</p>
-                </section>
-            {{/if}}
 
             <section class="share">
                 <h4>Share this post</h4>
@@ -54,7 +35,21 @@
                     <span class="hidden">Google+</span>
                 </a>
             </section>
+            <hr>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'blog-raelmax'; // required: replace example with your forum shortname
 
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </footer>
 
         {{/post}}
