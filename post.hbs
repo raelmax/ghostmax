@@ -10,7 +10,7 @@
         {{#post}}
 
         {{! Everything below outputs content of the the post which has been published }}
-        <span class="post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time> {{tags prefix="on " separator=" | "}}</span>
+        <span class="post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD/M/YYYY'}}</time></span>
 
         <h2 class="post-title">{{{title}}}</h2>
 
@@ -19,6 +19,7 @@
         </section>
 
         <footer class="post-footer">
+            <p class="post-tags"><i class="icon-tags"></i> {{tags prefix="on " separator=" | "}}</p>
             <hr>
             <section class="share">
                 <h4>Share this post</h4>
